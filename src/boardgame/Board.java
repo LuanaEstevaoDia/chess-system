@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package boardgame;
 
-/**
- *
- * @author luana
- */
 public class Board {
 
     private int rows;
@@ -48,9 +40,9 @@ public class Board {
     }
 
     public void placePiece(Piece piece, Position position) {
-        if(thereIsApiece(position)){
-            throw  new BoardException("There is already a piece on position "+ position);
-            
+        if (thereIsApiece(position)) {
+            throw new BoardException("There is already a piece on position " + position);
+
         }
         //Atribuindo uma posição e peça na matriz declarada nesta classe Board.
         pieces[position.getRow()][position.getColumn()] = piece;
@@ -59,6 +51,24 @@ public class Board {
          podemos acessar por estar no mesmo pacote.*/
         piece.position = position;
 
+    }
+
+    public Piece removePiece(Position position) {
+        //reparar a programação defensiva.
+        if (!positionExists(position)) {
+            throw new BoardException("Position not on the board");
+
+        }
+        if (piece(position) == null) {
+            return null;
+
+        }
+        //declara uma suxiliar que aponta para peça
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()]= null;
+        return aux;
+        
     }
 
     private boolean positionExists(int row, int column) {
