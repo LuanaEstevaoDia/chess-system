@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package boardgame;
 
-/**
- *
- * @author luana
- */
-public class Piece {
+public  abstract class Piece {
     protected Position position;//posição simples de matriz, não é ainda a posição de xadrez.
     private Board board;
 
@@ -21,6 +14,30 @@ public class Piece {
         return board;
         //Protegido para ser acessado só pelas peças
     }
+    public abstract boolean[][] possibleMoves();
+    public boolean possibleMove(Position position){    
+
+        /*Observar que o método concreto está utilizando um método abstrato.
+         hook method. è um método que faz um gancho com uma subclasse.*/
+        return possibleMoves()[position.getRow()][position.getColumn()];
+        
+    }
+     public boolean isThereAnyPossibleMove(){
+         //mais um exemplo de uma implementação padrão concreta que depende de um método abstrato.
+         boolean [][] mat = possibleMoves();
+         
+         for(int i= 0; i < mat.length; i++){
+             for(int j = 0; j < mat.length; j++){
+                 if(mat[i][j]){
+                     return true;
+                 }
+             }
+                 
+         }
+         return false;
+     }
+        
+    
 
     }
     

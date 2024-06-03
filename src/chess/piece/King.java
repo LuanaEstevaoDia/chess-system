@@ -21,6 +21,15 @@ public class King extends ChessPiece{
     public String toString(){
         return "K";
     }
+
+    @Override
+    public boolean[][] possibleMoves() {
+        //implementação provisória.Matriz que terá o mesmo n linha e colunas do tabuleiro
+        boolean [][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        return mat;
+        //Por enquanto vai retornar uma matriz do mov do King valendo false.
+        
+    }
     
     
 }
