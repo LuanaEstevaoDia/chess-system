@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package boardgame;
 
-/**
- *
- * @author luana
- */
+
 public class Position {
     private int row;
     private int column;
@@ -32,10 +26,19 @@ public class Position {
         this.row = row;
         this.column = column;
     }
+     public void setValues( int row, int column){
+         this.row = row;
+         this.column = column;
+        //método responsável por receber novos valores para classe Position
+        
+        
+    }
     @Override
     public String toString(){
         return row + ", " + column;
         
     }
+    
+   
     
 }

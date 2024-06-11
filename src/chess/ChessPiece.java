@@ -1,16 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
-/**
- *
- * @author luana
- */
+
 public  abstract class ChessPiece extends Piece{
     private Color color;
 
@@ -23,7 +18,15 @@ public  abstract class ChessPiece extends Piece{
         return color;
     }
     
+    //Operação na classe genérica para ser reaproveitada em todas as peças.Será protected para
+    //ser acessada no mesmo pacote.
     
+    protected boolean isthereOpponentPiece(Position position){
+        ChessPiece p = (ChessPiece)getBoard().piece(position);
+        return p != null && p.getColor() != color;
+    
+        
+    }
     
     
 }
