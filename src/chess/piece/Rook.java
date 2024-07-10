@@ -1,3 +1,6 @@
+
+/*Possíveis movimentos da torre: POde andar para horizontal e vertical enquanto tiver casa livre e peça adversária
+a qual ela capura.*/
 package chess.piece;
 
 import boardgame.Board;

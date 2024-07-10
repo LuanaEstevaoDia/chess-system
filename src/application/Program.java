@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package application;
 
 import chess.ChessException;
@@ -28,6 +25,10 @@ public class Program {
                 System.out.println();
                 System.out.print("Source: ");
                 ChessPosition source = UI.readChessPosition(sc);
+                
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(),possibleMoves);
 
                 System.out.println();
                 System.out.print("Target: ");
